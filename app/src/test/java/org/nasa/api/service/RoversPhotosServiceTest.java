@@ -32,14 +32,8 @@ public class RoversPhotosServiceTest {
     @InjectMocks
     private RoversPhotosService service;
 
-    @Ignore
     @Test
     public void testGetPhotosForDays() {
-        /* TODO: failing with current setup due to classloading issue (passes when jakartaee-api is used):
-         java.lang.LinkageError: ClassCastException: attempting to cast
-         jar:file:.../javax/javaee-api/8.0.1/javaee-api-8.0.1.jar!/javax/ws/rs/client/ClientBuilder.class
-         to jar:file:.../javax/javaee-api/8.0.1/javaee-api-8.0.1.jar!/javax/ws/rs/client/ClientBuilder.class
-         */
         // TODO: test is using real api and invokes nasa api, but normally should mock it
 
         PhotosResponse photos = service.getPhotosForDays("curiosity", "navcam", 6);
