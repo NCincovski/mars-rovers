@@ -22,48 +22,36 @@
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>${java.ee.version}</version>
+            <version>${version.java.ee}</version>
         </dependency>
-
-        <!-- jakarta ee -->
-        <!--        <dependency>-->
-        <!--            <groupId>jakarta.platform</groupId>-->
-        <!--            <artifactId>jakarta.jakartaee-api</artifactId>-->
-        <!--            <version>${jakarta.version}</version>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>jakarta.activation</groupId>-->
-        <!--            <artifactId>jakarta.activation-api</artifactId>-->
-        <!--            <version>2.0.0</version>-->
-        <!--        </dependency>-->
 
         <!-- jersey -->
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-server</artifactId>
-            <version>${jersey.version}</version>
+            <version>${version.jersey}</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-client</artifactId>
-            <version>${jersey.version}</version>
+            <version>${version.jersey}</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.inject</groupId>
             <artifactId>jersey-hk2</artifactId>
-            <version>${jersey.version}</version>
+            <version>${version.jersey}</version>
         </dependency>
 
         <!-- jackson -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
+            <version>${version.jackson}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
+            <version>${version.jackson}</version>
         </dependency>
 
         <!-- apache -->
@@ -121,6 +109,36 @@
                 <plugin>
                     <artifactId>maven-deploy-plugin</artifactId>
                     <version>2.8.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>fish.payara.maven.plugins</groupId>
+                    <artifactId>payara-micro-maven-plugin</artifactId>
+                    <version>${version.payaramicro.maven.plugin}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>bundle</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <payaraVersion>${version.payara.micro}</payaraVersion>
+                        <deployWar>true</deployWar>
+                        <!--<deployArtifacts>
+                            <artifactItem>
+                                <groupId>org.nasa.api</groupId>
+                                <artifactId>app</artifactId>
+                                <version>${version}</version>
+                                <type>war</type>
+                            </artifactItem>
+                        </deployArtifacts>-->
+                        <commandLineOptions>
+                            <option>
+                                <key>--autoBindHttp</key>
+                            </option>
+                        </commandLineOptions>
+                        <contextRoot>/</contextRoot>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
