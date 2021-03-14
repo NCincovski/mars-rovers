@@ -18,6 +18,7 @@ public class DayPhotos {
     private List<String> imageSources = new ArrayList<>();
 
     @JsonValue
+    @SuppressWarnings("unused")
     public Map<String, List<String>> createMap() {
         Map<String, List<String>> map = new HashMap<>();
         map.put(earthDate, imageSources);
