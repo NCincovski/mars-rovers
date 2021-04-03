@@ -26,12 +26,12 @@ public class ContiguousCharactersCountTest {
     }
 
     @Test
-    public void testRegexLettersCount_CaseSensitive() {
+    public void testRegexLettersCount_CaseInsensitive() {
         ContiguousCharactersCount.regexLettersCount(word, true);
     }
 
     @Test
-    public void testRegexLettersCount_CaseInsensitive() {
+    public void testRegexLettersCount_CaseSensitive() {
         ContiguousCharactersCount.regexLettersCount(word, false);
     }
 }
